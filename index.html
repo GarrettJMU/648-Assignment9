@@ -5,6 +5,42 @@
     <title>Vecta Corp. - 24/7 365 turnkey vSolutions for agile eBusinesses</title>
     <link href="styles/normalize.css" type="text/css" rel="stylesheet">
     <link href="styles/styles.css" type="text/css" rel="stylesheet">
+    <link href="styles/styles.css" type="text/css" rel="stylesheet">
+    <script src="scripts/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const headerStyles = {
+          border: '1px solid black',
+          color: '#CC1C0D',
+          paddingTop: '3px',
+          paddingBottom: '3px',
+          paddingLeft: '20px',
+          borderRadius: '0 5px 0 5px',
+          backgroundColor: '#DFE3E6'
+        }
+
+        const navigationStyles = {
+          border: '1px solid #929CA4',
+          color: '#CC1C0D',
+          paddingTop: '3px',
+          paddingBottom: '3px',
+          paddingLeft: '20px',
+          backgroundColor: '#DFE3E6'
+        }
+
+        $('section h2').css(headerStyles)
+        $('aside h2').css(headerStyles)
+
+        $('nav ul li a').addClass("navigation")
+        $('.navigation').css(navigationStyles)
+
+        $('section p').removeClass(['vprospect', 'vconvert', 'vretain'])
+
+        $('aside p:last-child').append('<br>Chevy Dealers Association')
+        $('aside p:first').wrap('<q></q>')
+      })
+    </script>
+
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>

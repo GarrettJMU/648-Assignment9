@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<>
+<head>
+    <meta charset="UTF-8">
+    <title>Part 2</title>
+    <script src="scripts/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('button:first').click(function () {
+          alert("Ive been clicked")
+        })
+
+        $('.second-button').bind("click", function () {
+          alert("I clicked on this for real.")
+        })
+
+        $('.third-button').on("click", () => alert("I clicked this!"))
+
+        $('.button-group').on("click", () => alert("I clicked this!"))
+
+        const div = $('div:first')
+        const span = $('span')
+
+        div.css({ width: 400, height: 400 })
+        div.on("click", () => span.text("you clicked my div"))
+        div.on("mouseenter", () => span.text("you entered my div"))
+        div.on("mouseleave", () => span.text("you left my div"))
+
+        $('a').on("click", (e) => {
+          e.preventDefault()
+          $(this).css('color', 'red')
+          window.alert(`Node: ${e.target.nodeName}`)
+        })
+
+        const firstInput = $('input:first')
+        firstInput.on('focus', ()=>{$('input:first').css({backgroundColor: 'lightgray'})})
+        firstInput.on('focusout', ()=>{$('input:first').css({backgroundColor: 'white'})})
+
+        $('.form-submit').on('click', (e)=>{
+          e.preventDefault()
+          const firstInput = $('form input:first')
+          const lastInput = $('form input:last')
+
+          if (firstInput.val().length < 1) {
+            firstInput.css({border: '1px solid red'})
+          }
+          if (lastInput.val().length < 1) {
+            lastInput.css({border: '1px solid red'})
+          }
+
+
+          if (firstInput.val().length > 0 && lastInput.val().length > 0) {
+            firstInput.css({border: '1px solid green'})
+            lastInput.css({border: '1px solid green'})
+          }
+        })
+
+      })
+
+      $(window).resize(function() {
+        $('.show-size').text(`Width: ${$(this).width()} Height: ${$(this).height()}`)
+      })
+    </script>
+
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<button>First Button</button>
+<button class="second-button">Second Button</button>
+<button class="third-button">Third Button</button>
+<br />
+<button class="button-group">
+    first of two buttons
+</button>
+<button class="button-group">
+    second of two buttons
+</button>
+<br />
+<span></span>
+<div></div>
+<a href="modulemedia.com">Href</a>
+<div class="show-size" style="width: 100%"></div>
+<input/>
+
+<form>
+    <input name="name"/>
+    <input name="email" type="email"/>
+    <button class="form-submit">Submit</button>
+</form>
+<body>
+</body>
+</html>
